@@ -37,7 +37,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(90, 105);
+            this.button1.Location = new System.Drawing.Point(353, 206);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 23);
             this.button1.TabIndex = 0;
@@ -47,22 +47,25 @@
             // 
             // textBoxPseudo
             // 
-            this.textBoxPseudo.Location = new System.Drawing.Point(90, 49);
+            this.textBoxPseudo.Location = new System.Drawing.Point(353, 150);
             this.textBoxPseudo.Name = "textBoxPseudo";
             this.textBoxPseudo.Size = new System.Drawing.Size(129, 22);
             this.textBoxPseudo.TabIndex = 1;
+            this.textBoxPseudo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPseudo_KeyPress);
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(90, 77);
+            this.textBoxPassword.Location = new System.Drawing.Point(353, 178);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(129, 22);
             this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPassword_KeyPress);
             // 
             // labelPseudo
             // 
             this.labelPseudo.AutoSize = true;
-            this.labelPseudo.Location = new System.Drawing.Point(12, 49);
+            this.labelPseudo.Location = new System.Drawing.Point(275, 150);
             this.labelPseudo.Name = "labelPseudo";
             this.labelPseudo.Size = new System.Drawing.Size(54, 16);
             this.labelPseudo.TabIndex = 3;
@@ -71,7 +74,7 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(12, 77);
+            this.labelPassword.Location = new System.Drawing.Point(275, 178);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(67, 16);
             this.labelPassword.TabIndex = 4;

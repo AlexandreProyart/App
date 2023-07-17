@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormApp_Application
 {
@@ -22,6 +23,8 @@ namespace WindowsFormApp_Application
         public string passwordAdminTextbox;
         public string pseudoAdminBDD;
         public string passwordAdminBDD;
+
+        public string role;
 
         public Form1()
         {
@@ -58,9 +61,12 @@ namespace WindowsFormApp_Application
             {
                 connection.Close();
             }
+
+            textBoxPseudo.Text = "root";
+            textBoxPassword.Text = "root";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //Connection button
         {
             pseudoAdminTextbox = textBoxPseudo.Text;
             passwordAdminTextbox = textBoxPassword.Text;
@@ -70,13 +76,35 @@ namespace WindowsFormApp_Application
 
             if (pseudoAdminTextbox == pseudoAdminBDD && passwordAdminTextbox == passwordAdminBDD)
             {
-                MessageBox.Show("You are connected as an administrator");
+                role = "Admin";
+                Form2 form2 = new Form2();
+                form2.connectionString = connectionString;
+                form2.role = role;
+                form2.Show();
             }
             else
             {
                 MessageBox.Show("Error");
             }
             connection.Close();
+        }
+
+        private void textBoxPseudo_KeyPress(object sender, KeyPressEventArgs e) //Click on connection button
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                this.button1_Click(null, null);
+            }
+        }
+
+        private void textBoxPassword_KeyPress(object sender, KeyPressEventArgs e) //Click on connection button
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                this.button1_Click(null, null);
+            }
         }
     }
 }
